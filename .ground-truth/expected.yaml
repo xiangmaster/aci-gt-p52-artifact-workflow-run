@@ -1,0 +1,10 @@
+id: P52-E02
+repository: aci-gt-p52-artifact-workflow-run
+visibility: public
+stage: P5
+rule: P5.2
+kind: experiment
+atomic_variable: "workflow_run 下载并读取 artifact"
+expected_status: REACHABLE
+setup: AUTO_FILES
+configuration_state: COMPLETE
