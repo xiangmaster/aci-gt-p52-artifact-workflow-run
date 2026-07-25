@@ -1,0 +1,20 @@
+name: Ground Truth P52-E02
+on:
+  workflow_run:
+    workflows: [Agent Producer]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    if: ${{ false }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      AGENT_OUTPUT: ground-truth-agent-output
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: agent-output
+          run-id: ${{ github.event.workflow_run.id }}
+      - run: cat agent-output.txt
