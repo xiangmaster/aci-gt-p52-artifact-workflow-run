@@ -1,0 +1,14 @@
+name: Agent Producer
+on:
+  workflow_dispatch:
+permissions: read-all
+jobs:
+  produce:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ground-truth-agent-output > agent-output.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: agent-output
+          path: agent-output.txt
